@@ -63,7 +63,7 @@ public class Main {
 		
 		try {
 			Main tt = new Main();
-			JDrawPanel bottomdraw = new JDrawPanel(new File("image/icpc_banner.png"));
+			JDrawPanel bottomdraw = new JDrawPanel(new File("image/icpc_banner1.png"));
 			JDrawPanel leftdraw = new JDrawPanel(new File("image/sac_state.png"));
 			tt.Init();
 			bottomdraw.setPreferredSize(new Dimension(66, 78));
