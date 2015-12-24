@@ -45,7 +45,8 @@ public class Main {
 		//------LEFT------//
 		
 		//------AddEventListener------//
-		centerbutton2.addActionListener(new clickListener());
+		centerbutton1.addActionListener(new clickLoginListener());
+		centerbutton2.addActionListener(new clickExitListener());
 		//------ALLSET------//
 		f.setLayout(new BorderLayout(36, 30));
 		f.add(toppanel, BorderLayout.NORTH);
@@ -56,7 +57,7 @@ public class Main {
 		f.setVisible(true);
 	}	
 	
-	class clickListener implements ActionListener {
+	class clickExitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int cmd = JOptionPane.showConfirmDialog(f, "Are you sure you want to exit?", "Exit AcOne", JOptionPane.YES_NO_CANCEL_OPTION, 
 					                                JOptionPane.QUESTION_MESSAGE);
@@ -65,6 +66,15 @@ public class Main {
 			}		
 		}
 	}	
+	
+	class clickLoginListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			f.setVisible(false);
+			JFrame ff = new JFrame("AcOne");
+			ff.setBounds(30, 30, 626, 431);
+			ff.setVisible(true);
+		}
+	}
 
 	public static void main(String[] args) {
 		try {
