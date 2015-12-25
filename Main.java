@@ -70,9 +70,8 @@ public class Main {
 	class clickLoginListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			f.setVisible(false);
-			JFrame ff = new JFrame("AcOne");
-			ff.setBounds(30, 30, 626, 431);
-			ff.setVisible(true);
+			TeamSubmit ff = new TeamSubmit("AcOne");
+			ff.Init();
 		}
 	}
 
