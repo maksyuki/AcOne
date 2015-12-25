@@ -32,8 +32,9 @@ public class TeamSubmit extends JFrame {
 	private JButton filebutton1 = new JButton("Add");
 	private JButton filebutton2 = new JButton("Remove");
 	private JLabel time = new JLabel("STOPPED CONTEST IS NOT RUNNING");
-	private JLabel submitfile = new JLabel("D:\\Documents\\Program\\abcd\\acm\\test.cpp");
-	
+	private JLabel submitfile = new JLabel();
+	private JFileChooser chooser = new JFileChooser(".");	
+
 	public TeamSubmit(String name) {
 		this.setTitle(name);
 	}
@@ -112,17 +113,39 @@ public class TeamSubmit extends JFrame {
 
 		this.add(tab, BorderLayout.CENTER);
 		//------AddEventListener------//
+		centerbutton.addActionListener(new clickFileOpenListener());
 		bottombutton2.addActionListener(new clickSubmitListener());
+
 		//------ALLSET------//
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(120, 120, 626, 431);
 		this.setVisible(true);
 	}
-
+	
+	class clickFileOpenListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			TeamSubmit tt = new TeamSubmit ("supermaker");
+			int cmd = chooser.showDialog(tt, "´ò¿ª");		
+			if (cmd == JFileChooser.APPROVE_OPTION) {
+				System.out.println(chooser.getSelectedFile().getPath());
+				submitfile.setText(chooser.getSelectedFile().getPath());
+			}
+		}
+	}
 	class clickSubmitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			TeamSubmit tt = new TeamSubmit("supermaker");//This is a mistake to modify
-			int cmd = JOptionPane.showConfirmDialog(tt, "Are you want to submit?", "Confirm Submission", JOptionPane.YES_NO_CANCEL_OPTION,
+			JPanel confirm = new JPanel();
+			confirm.setLayout(new GridLayout(4, 1));
+			JLabel title = new JLabel("Do you wish to submit run for");
+			JLabel problemlabel = new JLabel("Problem: " + (String) problemselect.getSelectedItem());
+			JLabel languagelabel = new JLabel("Language: " + (String) languageselect.getSelectedItem());
+			JLabel filelabel = new JLabel("File: " + chooser.getSelectedFile().getPath());
+			confirm.add(title);
+			confirm.add(problemlabel);
+			confirm.add(languagelabel);
+			confirm.add(filelabel);
+			int cmd = JOptionPane.showConfirmDialog(tt, confirm, "Confirm Submission", JOptionPane.YES_NO_CANCEL_OPTION,
 					                                JOptionPane.QUESTION_MESSAGE);
 			if (cmd == 0) {
 				System.out.println ("I am supermaker");
