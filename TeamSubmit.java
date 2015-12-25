@@ -164,17 +164,38 @@ public class TeamSubmit extends JFrame {
 			JPanel confirm = new JPanel();
 			confirm.setLayout(new GridLayout(4, 1));
 			JLabel title = new JLabel("Do you wish to submit run for");
-			JLabel problemlabel = new JLabel("Problem: " + (String) problemselect.getSelectedItem());
-			JLabel languagelabel = new JLabel("Language: " + (String) languageselect.getSelectedItem());
-			JLabel filelabel = new JLabel("File: " + chooser.getSelectedFile().getPath());
+			JLabel problemlabelname = new JLabel("Problem: ");
+			JLabel languagelabelname = new JLabel("Language: ");
+			JLabel filelabelname = new JLabel("File: ");
+			JLabel problemlabel = new JLabel((String) problemselect.getSelectedItem());
+			JLabel languagelabel = new JLabel((String) languageselect.getSelectedItem());
+			JLabel filelabel = new JLabel(chooser.getSelectedFile().getPath());
+			JPanel problempanel = new JPanel();
+			JPanel languagepanel = new JPanel();
+			JPanel filepanel = new JPanel();
+
 			setLabelFormat(title, 1, 20, 0);
+			setLabelFormat(problemlabelname, 1, 20, 0);
+			setLabelFormat(languagelabelname, 1, 20, 0);
+			setLabelFormat(filelabelname, 1, 20, 0);
 			setLabelFormat(problemlabel, 1, 20, 1);
 			setLabelFormat(languagelabel, 1, 20, 1);
 			setLabelFormat(filelabel, 1, 20, 1);
+			
+			problempanel.setLayout(new BorderLayout());
+			languagepanel.setLayout(new BorderLayout());
+			filepanel.setLayout(new BorderLayout());
+
 			confirm.add(title);
-			confirm.add(problemlabel);
-			confirm.add(languagelabel);
-			confirm.add(filelabel);
+			problempanel.add(problemlabelname, BorderLayout.WEST);	
+			problempanel.add(problemlabel, BorderLayout.CENTER);	
+			languagepanel.add(languagelabelname, BorderLayout.WEST);	
+			languagepanel.add(languagelabel, BorderLayout.CENTER);	
+			filepanel.add(filelabelname, BorderLayout.WEST);	
+			filepanel.add(filelabel, BorderLayout.CENTER);	
+			confirm.add(problempanel);
+			confirm.add(languagepanel);
+			confirm.add(filepanel);
 			int cmd = JOptionPane.showConfirmDialog(tt1, confirm, "Confirm Submission", JOptionPane.YES_NO_CANCEL_OPTION,
 					                                JOptionPane.QUESTION_MESSAGE);
 			if (cmd == 0) {
