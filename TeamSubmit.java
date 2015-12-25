@@ -9,7 +9,7 @@ public class TeamSubmit extends JFrame {
 	private JPanel toppanel = new JPanel();
 	private String[] name = new String[] {"Submit Run", "View Runs", "Request Clarification", "View Clarifications", "Options"};
 	private String[] problemname = new String[] {"A", "B", "C", "D", "E", "F"};
-	private String[] languagename = new String[] {"GNU C++", "Java"};
+	private String[] languagename = new String[] {"GNU C", "GNU C++", "Java"};
 	private JPanel tabpanel0 = new JPanel();
 	private JPanel tabpanel1 = new JPanel();
 	private JPanel tabpanel2 = new JPanel();
@@ -44,6 +44,7 @@ public class TeamSubmit extends JFrame {
 		//toppanel.setLayout(new GridLayout(1, 2, 140, 140));
 		toppanel.setLayout(new BorderLayout());
 		toppanel.add(time, BorderLayout.WEST);
+		setLabelFormat(time, 1, 15, 2);
 		toppanel.add(topbutton, BorderLayout.EAST);
 		this.add(toppanel, BorderLayout.NORTH);
 		//------CENTER------//
@@ -113,18 +114,42 @@ public class TeamSubmit extends JFrame {
 
 		this.add(tab, BorderLayout.CENTER);
 		//------AddEventListener------//
+		topbutton.addActionListener(new clickExitListener());
 		centerbutton.addActionListener(new clickFileOpenListener());
 		bottombutton2.addActionListener(new clickSubmitListener());
-
+		
 		//------ALLSET------//
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(120, 120, 626, 431);
 		this.setVisible(true);
 	}
-	
+
+	//color-0 is black(default) color-1 is blue color-2 is red color-3 is green 
+	public void setLabelFormat(JLabel val, int bold, int size, int color) {
+		val.setFont(new Font("Dialog", bold, size));
+		if (color == 1) {
+			val.setForeground(Color.blue);
+		} else if (color == 2) {
+			val.setForeground(Color.red);
+		} else if (color == 3) {
+			val.setForeground(Color.green);
+		}
+	}
+
+	class clickExitListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			TeamSubmit tt = new TeamSubmit("supermaker");
+			int cmd = JOptionPane.showConfirmDialog(tt, "Are you sure you want to exit?", "Exit AcOne", JOptionPane.YES_NO_CANCEL_OPTION,
+					                                JOptionPane.QUESTION_MESSAGE);
+			if (cmd == 0) {
+				System.exit(0);
+			}
+		}
+	}
+
 	class clickFileOpenListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TeamSubmit tt = new TeamSubmit ("supermaker");
+			TeamSubmit tt = new TeamSubmit("supermaker");
 			int cmd = chooser.showDialog(tt, "´ò¿ª");		
 			if (cmd == JFileChooser.APPROVE_OPTION) {
 				System.out.println(chooser.getSelectedFile().getPath());
@@ -132,22 +157,31 @@ public class TeamSubmit extends JFrame {
 			}
 		}
 	}
+
 	class clickSubmitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TeamSubmit tt = new TeamSubmit("supermaker");//This is a mistake to modify
+			TeamSubmit tt1 = new TeamSubmit("supermaker");//This is a mistake to modify
 			JPanel confirm = new JPanel();
 			confirm.setLayout(new GridLayout(4, 1));
 			JLabel title = new JLabel("Do you wish to submit run for");
 			JLabel problemlabel = new JLabel("Problem: " + (String) problemselect.getSelectedItem());
 			JLabel languagelabel = new JLabel("Language: " + (String) languageselect.getSelectedItem());
 			JLabel filelabel = new JLabel("File: " + chooser.getSelectedFile().getPath());
+			setLabelFormat(title, 1, 20, 0);
+			setLabelFormat(problemlabel, 1, 20, 1);
+			setLabelFormat(languagelabel, 1, 20, 1);
+			setLabelFormat(filelabel, 1, 20, 1);
 			confirm.add(title);
 			confirm.add(problemlabel);
 			confirm.add(languagelabel);
 			confirm.add(filelabel);
-			int cmd = JOptionPane.showConfirmDialog(tt, confirm, "Confirm Submission", JOptionPane.YES_NO_CANCEL_OPTION,
+			int cmd = JOptionPane.showConfirmDialog(tt1, confirm, "Confirm Submission", JOptionPane.YES_NO_CANCEL_OPTION,
 					                                JOptionPane.QUESTION_MESSAGE);
 			if (cmd == 0) {
+				TeamSubmit tt2  = new TeamSubmit("supermaker");
+				title.setText("Confirmation of Run Receipt");
+				filelabel.setText("Run Id: 1");	
+				JOptionPane.showMessageDialog(tt2, confirm, "Run Received", JOptionPane.WARNING_MESSAGE);
 				System.out.println ("I am supermaker");
 			}
 		}
