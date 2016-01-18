@@ -1,0 +1,12 @@
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\bin\Debug\Browser.exe.manifest
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\bin\Debug\Browser.application
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\bin\Debug\Browser.exe
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\bin\Debug\Browser.pdb
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.csprojResolveAssemblyReference.cache
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.Form1.resources
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.Properties.Resources.resources
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.csproj.GenerateResource.Cache
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.exe.manifest
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.application
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.exe
+C:\Users\abcd\Desktop\C4plus-master\hdu_AC自动机\Browser\obj\Debug\Browser.pdb

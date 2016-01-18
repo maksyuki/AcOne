@@ -201,7 +201,8 @@ public class TeamSubmit extends JFrame {
 			if (cmd == 0) {
 				TeamSubmit tt2  = new TeamSubmit("supermaker");
 				title.setText("Confirmation of Run Receipt");
-				filelabel.setText("Run Id: 1");	
+				filelabelname.setText("Run Id: ");
+				filelabel.setText("1");	
 				JOptionPane.showMessageDialog(tt2, confirm, "Run Received", JOptionPane.WARNING_MESSAGE);
 				System.out.println ("I am supermaker");
 			}
